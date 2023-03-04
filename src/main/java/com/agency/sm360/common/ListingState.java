@@ -1,5 +1,5 @@
 package com.agency.sm360.common;
 
-public enum ListingStatus {
+public enum ListingState {
     draft, published
 }
