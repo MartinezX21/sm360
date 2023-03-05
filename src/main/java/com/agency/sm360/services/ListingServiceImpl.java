@@ -11,6 +11,8 @@ import com.agency.sm360.dao.DealerDAO;
 import com.agency.sm360.dao.ListingDAO;
 import com.agency.sm360.dto.AmendListingRequest;
 import com.agency.sm360.entities.Listing;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +25,7 @@ import java.util.*;
 
 @Service
 public class ListingServiceImpl implements ListingService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListingServiceImpl.class);
     private final DealerDAO dealerDAO;
     private final ListingDAO listingDAO;
     private final AppProperties appProperties;
@@ -37,7 +40,9 @@ public class ListingServiceImpl implements ListingService {
     public Listing addListing(Listing listing) {
         if(listing.getDealer().getId() == null || !dealerDAO.existsById(listing.getDealer().getId())) {
             // we create the dealer on the flight if not existing
-            listing.setDealer(dealerDAO.save(listing.getDealer()));
+            Dealer dealer = dealerDAO.save(listing.getDealer());
+            LOGGER.debug("Created a new dealer on the flight", dealer);
+            listing.setDealer(dealer);
         }
         listing.setState(ListingState.draft);
         listing.setCreatedAt(Calendar.getInstance().getTime());
@@ -54,6 +59,7 @@ public class ListingServiceImpl implements ListingService {
             listing.setPrice(request.getPrice());
             return listingDAO.save(listing);
         } catch (NoSuchElementException ex) {
+            LOGGER.error("I didn't find a listing with the given id", id);
             Sm360Exception e = new Sm360Exception(ex);
             e.setDetails(id);
             throw e;
@@ -75,12 +81,14 @@ public class ListingServiceImpl implements ListingService {
                 if (strategy == TierLimitStrategy.unpublish_oldest) {
                     oldestPublished = listingDAO.findOldestByState(ListingState.published).orElse(null);
                     if (oldestPublished == null) {
+                        LOGGER.debug("Oldest published listing not found while applying unpublish_oldest tier limit strategy");
                         throw new Sm360Exception("Unexpected error occurred. Please try later");
                     }
                     oldestPublished.setState(ListingState.draft);
                 } else {
                     // cancel_with_error -- default strategy
                     // cancel the operation and throw an exception
+                    LOGGER.error("Publish listing canceled due to tier limit reached", listing);
                     throw new Sm360Exception("Tier limit is reached");
                 }
             }
@@ -93,6 +101,7 @@ public class ListingServiceImpl implements ListingService {
                 return listingDAO.save(listing);
             }
         } catch (NoSuchElementException ex) {
+            LOGGER.error("I didn't find a listing with the given id", id);
             Sm360Exception e = new Sm360Exception(ex);
             e.setDetails(id);
             throw e;
@@ -108,6 +117,7 @@ public class ListingServiceImpl implements ListingService {
             listing.setState(ListingState.draft);
             return listingDAO.save(listing);
         } catch (NoSuchElementException ex) {
+            LOGGER.error("I didn't find a listing with the given id", id);
             Sm360Exception e = new Sm360Exception(ex);
             e.setDetails(id);
             throw e;
@@ -135,6 +145,7 @@ public class ListingServiceImpl implements ListingService {
             // find the dealer by the given id and throw a NoSuchElementException if not found
             return dealerDAO.findById(id).orElseThrow();
         } catch (NoSuchElementException ex) {
+            LOGGER.error("I didn't find a dealer with the given id", id);
             Sm360Exception e = new Sm360Exception(ex);
             e.setDetails(id);
             throw e;
