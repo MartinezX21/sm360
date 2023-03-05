@@ -1,6 +1,6 @@
 package com.agency.sm360.entities;
 
-import com.agency.sm360.common.ListingState;
+import com.agency.sm360.utils.ListingState;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,11 +16,11 @@ public class Listing {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @ManyToOne(optional=false)
-    Dealer dealer;
-    String vehicle;
-    Double price;
+    private Dealer dealer;
+    private String vehicle;
+    private Double price;
     @Temporal(TemporalType.TIMESTAMP)
-    Date createdAt;
+    private Date createdAt;
     @Enumerated(EnumType.STRING)
-    ListingState state;
+    private ListingState state;
 }
