@@ -1,0 +1,31 @@
+2023-03-05 18:53:20,522 DEBUG o.h.e.t.i.TransactionImpl [http-nio-8080-exec-6] On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2023-03-05 18:53:20,522 DEBUG o.h.e.t.i.TransactionImpl [http-nio-8080-exec-6] begin
+2023-03-05 18:53:20,524 DEBUG o.h.o.s.exec [http-nio-8080-exec-6] Skipping reading Query result cache data: cache-enabled = false, cache-mode = IGNORE
+2023-03-05 18:53:20,524 DEBUG o.h.o.results [http-nio-8080-exec-6] Initializer list
+2023-03-05 18:53:20,524 DEBUG o.h.o.results [http-nio-8080-exec-6]     com.agency.sm360.entities.Listing.dealer -> EntityJoinedFetchInitializer(com.agency.sm360.entities.Listing.dealer)@409009036 (ToOneAttributeMapping(NavigableRole[com.agency.sm360.entities.Listing.dealer])@1928911435)
+2023-03-05 18:53:20,524 DEBUG o.h.o.results [http-nio-8080-exec-6]     com.agency.sm360.entities.Listing -> EntityResultInitializer(com.agency.sm360.entities.Listing)@380049136 (SingleTableEntityPersister(com.agency.sm360.entities.Listing))
+2023-03-05 18:53:20,524 DEBUG o.h.SQL [http-nio-8080-exec-6] select l1_0.id,l1_0.created_at,d1_0.id,d1_0.name,l1_0.price,l1_0.state,l1_0.vehicle from listing l1_0 join dealer d1_0 on d1_0.id=l1_0.dealer_id where l1_0.id=?
+2023-03-05 18:53:20,526 DEBUG o.h.e.t.i.TransactionImpl [http-nio-8080-exec-6] committing
+2023-03-05 18:53:20,527 ERROR c.a.s.s.ListingServiceImpl [http-nio-8080-exec-6] I didn't find a listing with the given id
+2023-03-05 18:53:20,676 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-03-05 18:53:20,676 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-03-05 18:53:50,677 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-03-05 18:53:50,677 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-03-05 18:54:14,560 DEBUG o.h.i.SessionFactoryImpl [SpringApplicationShutdownHook] HHH000031: Closing
+2023-03-05 18:54:14,561 DEBUG o.h.t.s.TypeConfiguration$Scope [SpringApplicationShutdownHook] Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@52bfdc3b] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@54f373d4]
+2023-03-05 18:54:14,561 DEBUG o.h.s.i.AbstractServiceRegistryImpl [SpringApplicationShutdownHook] Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2023-03-05 18:54:14,563 DEBUG o.h.b.r.i.BootstrapServiceRegistryImpl [SpringApplicationShutdownHook] Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2023-03-05 18:54:14,563 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-03-05 18:54:14,563 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+2023-03-05 18:54:14,564 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@7cc1f72c: (connection evicted)
+2023-03-05 18:54:14,567 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@21395dc3: (connection evicted)
+2023-03-05 18:54:14,568 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@10523aba: (connection evicted)
+2023-03-05 18:54:14,569 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4116a28c: (connection evicted)
+2023-03-05 18:54:14,569 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@45581f2b: (connection evicted)
+2023-03-05 18:54:14,570 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@77cd16ac: (connection evicted)
+2023-03-05 18:54:14,571 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@354ac5ad: (connection evicted)
+2023-03-05 18:54:14,573 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@a9e84ef: (connection evicted)
+2023-03-05 18:54:14,574 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2d1f98d4: (connection evicted)
+2023-03-05 18:54:14,575 DEBUG c.z.h.p.PoolBase [HikariPool-1 connection closer] HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@68e76d4f: (connection evicted)
+2023-03-05 18:54:14,576 DEBUG c.z.h.p.HikariPool [SpringApplicationShutdownHook] HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2023-03-05 18:54:14,576 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
