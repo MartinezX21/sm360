@@ -54,8 +54,8 @@ This starts tomcat server on port 8080. You can change this behaviour by setting
 e.g. `java --Dserver.port=8081 -jar .\target\sm360-0.0.1-SNAPSHOT.jar` to run tomcat on port 8081
 
 When the application has started, the documentation is available via the following urls
-* `http://server:port/api-docs` json version
-* `http://server:port/swagger-ui.html`
+* `http://server:port/api-docs` json version. e.g. `http://localhost:8080/api-docs` if the service is runing on localhost, on port 8080. 
+* `http://server:port/swagger-ui.html` e.g. `http://localhost:8080/swagger-ui.html` if the service is runing on localhost, on port 8080.
 
 ## <a name="enhancements"></a>Possible enhancements
 Here are some propositions to further enhance the actual implementation
