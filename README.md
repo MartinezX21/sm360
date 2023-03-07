@@ -7,7 +7,6 @@ This is what we will cover in this page:
 * [How to execute](#execute)
 * [Possible enhancements](#enhancements)
 
-
 ## <a name="requirements"></a>Requirements
 The current implementation is using the following tools
 * Java 17
@@ -19,7 +18,7 @@ The default configuration set for the data source are the following
 * url: `jdbc:mysql://localhost:3306/db_sm360`
 * username: `admin_db_sm360`
 * password: `TEj6$wrCtgYxwYN5`
-* 
+
 Other configuration like the tier limit can be found in `application.properties`
 
 Here is the script to create the default data source user
@@ -39,7 +38,7 @@ It include basically endpoints for:
 * Get all listings of a dealer with a given state;
 * Publishing a listing;
 * Unpublishing a listing.
-* 
+
 Exception handling, tests, logs and openapi documentation are available.
 
 ## <a name="execute"></a>How to execute
