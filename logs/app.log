@@ -1,3 +1,0 @@
-2023-03-07 18:22:37,697 INFO c.a.s.s.ListingServiceImpl [http-nio-8080-exec-8] Created a new dealer on the flight
-2023-03-07 18:24:04,505 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2023-03-07 18:24:04,513 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
