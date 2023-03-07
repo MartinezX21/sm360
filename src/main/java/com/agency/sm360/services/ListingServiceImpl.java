@@ -41,7 +41,7 @@ public class ListingServiceImpl implements ListingService {
         if(listing.getDealer().getId() == null || !dealerDAO.existsById(listing.getDealer().getId())) {
             // we create the dealer on the flight if not existing
             Dealer dealer = dealerDAO.save(listing.getDealer());
-            LOGGER.debug("Created a new dealer on the flight", dealer);
+            LOGGER.info("Created a new dealer on the flight", dealer);
             listing.setDealer(dealer);
         }
         listing.setState(ListingState.draft);
@@ -81,7 +81,7 @@ public class ListingServiceImpl implements ListingService {
                 if (strategy == TierLimitStrategy.unpublish_oldest) {
                     oldestPublished = listingDAO.findOldestByState(ListingState.published).orElse(null);
                     if (oldestPublished == null) {
-                        LOGGER.debug("Oldest published listing not found while applying unpublish_oldest tier limit strategy");
+                        LOGGER.info("Oldest published listing not found while applying unpublish_oldest tier limit strategy");
                         throw new Sm360Exception("Unexpected error occurred. Please try later");
                     }
                     oldestPublished.setState(ListingState.draft);

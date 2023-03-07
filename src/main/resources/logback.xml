@@ -31,11 +31,11 @@
         </encoder>
     </appender>
 
-    <logger name="com.agency" level="debug" additivity="false">
+    <logger name="com.agency" level="info" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
 
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="FILE-ROLLING"/>
         <appender-ref ref="CONSOLE" />
     </root>
