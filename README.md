@@ -14,27 +14,32 @@ The current implementation is using the following tools
 * MySQL -- for data source
 * Maven -- to build the project
 
-The default configuration set for the data source are the faullowing 
+The default configuration set for the data source are the following 
+
 * url: `jdbc:mysql://localhost:3306/db_sm360`
 * username: `admin_db_sm360`
 * password: `TEj6$wrCtgYxwYN5`
-Other configuration like the tier limit can be find in `application.properties`
+* 
+Other configuration like the tier limit can be found in `application.properties`
 
 Here is the script to create the default data source user
-`
+```
 CREATE DATABASE db_sm360;
 CREATE USER 'admin_db_sm360'@'localhost' IDENTIFIED BY 'TEj6$wrCtgYxwYN5';
 GRANT ALL PRIVILEGES ON db_sm360.* TO 'admin_db_sm360'@'localhost';
-`
+```
 
 ## <a name="workdone"></a>What have been implemented
 The actual implementation is in line with what have been described [here](https://github.com/sm360/backend-tech-assignment)
+
 It include basically endpoints for:
+
 * Creating a listing. All the created listings have state `draft` by default;
 * Updating a listing;
 * Get all listings of a dealer with a given state;
 * Publishing a listing;
 * Unpublishing a listing.
+* 
 Exception handling, tests, logs and openapi documentation are available.
 
 ## <a name="execute"></a>How to execute
@@ -44,7 +49,9 @@ Run the following command to execute the project
 
 ### Run
 `java -jar .\target\sm360-0.0.1-SNAPSHOT.jar`
+
 This starts tomcat server on port 8080. You can change this behaviour by setting the argument --Dserver.port. 
+
 e.g. `java --Dserver.port=8081 -jar .\target\sm360-0.0.1-SNAPSHOT.jar` to run tomcat on port 8081
 
 When the application has started, the documentation is available via the following urls
